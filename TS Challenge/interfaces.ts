@@ -83,3 +83,104 @@ interface User2 {
   sayHi(name: string): string;
   fullName(): string;
 }
+
+// 인터페이스와 타입을 상속하는 방법에는 차이가 있다.
+
+// abstract class User3 {
+//   constructor(
+//     protected firstName:string,
+//     protected lastName:string
+//   ) {}
+//   abstract sayHi(name:string):string
+//   abstract fullName():string
+// }
+
+// class Player7 extends User3 {
+//   fullName(): string {
+//     return `${this.firstName} ${this.lastName}`
+//   }
+//   sayHi(name: string): string {
+//     return `Hello ${name}. My name is ${this.fullName}`
+//   }
+// }
+
+// 추상클래스를 interface로 변환
+
+interface User3 {
+  firstName: string;
+  lastName: string;
+  sayHi(name: string): string;
+  fullName(): string;
+}
+
+interface Human {
+  health: number;
+}
+
+// interface를 상속할 때에 property 앞에 public만 쓸 수 있다.
+// 하나 이상의 interface를 상속할 수 있다.
+
+class Player7 implements User3, Human {
+  constructor(
+    public firstName: string,
+    public lastName: string,
+    public health: number
+  ) {}
+  fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  sayHi(name: string): string {
+    return `Hello ${name}. My name is ${this.fullName}`;
+  }
+}
+
+// 인자에 interface를 넣을 수도 있고 리턴할 수도 있다.
+// interface를 리턴할 때는 new class이름과 같은 양식을 사용하지 않아도 된다.
+
+type PlayeA = {
+  name: string;
+};
+
+type PlayeAA = PlayeA & {
+  lastName: string;
+};
+
+const playeA: PlayeAA = {
+  name: "nico",
+  lastName: "xxx",
+};
+
+//
+
+interface PlayeB {
+  name: string;
+}
+
+interface PlayeBB extends PlayeB {
+  lastName: string;
+}
+interface PlayeBB {
+  health: number;
+}
+
+const playeB: PlayeBB = {
+  name: "nico",
+  lastName: "xxx",
+  health: 1,
+};
+
+// 오브젝트의 모양을 알려주기 위한 목적은 같다.
+
+type PlayerA = {
+  firstName: string;
+};
+
+interface PlayerB {
+  firstName: string;
+}
+
+class Use implements PlayerB {
+  constructor(public firstName: string) {}
+}
+
+// 타입 alias나 특정값으로 타입을 제한하는 경우에 타입을 쓰자.
