@@ -1,0 +1,15 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "build",
+    "target": "ES6",
+    "lib": ["ES6", "DOM"],
+    "strict": true,
+    "allowJs": true
+  }
+}
+
+// include -> 자바스크립트로 컴파일 하고 싶은 모든 디렉토리를 넣는다.
+// target -> 컴파일 할 자바스크립트 버젼 설정
+// lib -> 코드가 동작하는 환경 설정
+// 자바스크립트의 타입에 대한 설명이 필요함 -> 정의 타입을 통해 자바스크립트 코드 모양을 타입스크립트에 설명
