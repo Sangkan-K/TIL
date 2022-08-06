@@ -18,3 +18,6 @@ export function init(config) {
 export function exit(code) {
   return code + 1;
 }
+
+// 자바스크립트 코드는 그데로 두고 타입스크립트의 보호를 받고자 할 때
+// JS DOC활용
