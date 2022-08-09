@@ -1,0 +1,2 @@
+자바스크립트의 boolean 값에서 false로 평가되는 값을 말합니다.
+falsy한 값에는 false, null, undefined, 0, NaN, '' 가 있습니다.
